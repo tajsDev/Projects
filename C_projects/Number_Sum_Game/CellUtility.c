@@ -1,0 +1,40 @@
+// include header
+#include "CellUtility.h"
+
+int cellsAreEqual( const CellDataType one, const CellDataType other )
+   {
+    bool dataEqual = one.dataValue == other.dataValue;
+    bool xLocEqual = one.xLocation == other.xLocation;
+    bool yLocEqual = one.yLocation == other.yLocation;
+    
+    return dataEqual && xLocEqual && yLocEqual;
+   }
+   
+void cellToString( char *str, const CellDataType cell )
+   {
+   	sprintf( str, " (%d, %d)=>%4d", cell.xLocation, 
+	                                          cell.yLocation, cell.dataValue );
+   }
+   
+void copyCell( CellDataType *dest, const CellDataType source )   
+   {
+   	dest->dataValue = source.dataValue;
+   	
+   	dest->xLocation = source.xLocation;
+   	
+   	dest->yLocation = source.yLocation;
+   }
+
+void setCellData( CellDataType *cell, int data, int xLoc, int yLoc )
+   {
+   	cell->dataValue = data;
+   	
+   	cell->xLocation = xLoc;
+   	
+   	cell->yLocation = yLoc;
+   }
+   
+void setCellEmpty( CellDataType *cell )
+   {
+   	setCellData( cell, 0, 0, 0 );
+   }
